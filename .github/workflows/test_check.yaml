@@ -8,8 +8,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 21
+          cache: "pnpm"
+
       - name: Install dependencies
-        run: pnpm i
+        run: pnpm install
 
       - name: Lint code
         run: pnpm lint
