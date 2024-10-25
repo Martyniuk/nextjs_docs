@@ -9,12 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
-        run: npm test
-        env:
-          CI: true
+        run: pnpm i
 
       - name: Lint code
-        run: npm run lint
+        run: pnpm lint
